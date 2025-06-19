@@ -11,7 +11,7 @@
         "id":"2",
         "title":"Putana",
         "artist":"Ninho",
-        "img":"./assets/img/Ninho-Putana.jpeg",
+        "img":"./assets/img/Ninho-Putana.jpg",
         "path":"./assets/mp3/Ninho-Putana.mp3",
         "duration":"3:50"
     },
@@ -19,7 +19,7 @@
         "id":"3",
         "title":"Possédé",
         "artist":"Djadja & Dinaz",
-        "img":"./assets/img/Djadja&Dinaz-Possédé.jpeg",
+        "img":"./assets/img/Djadja&Dinaz-Possédé.jpg",
         "path":"./assets/mp3/Djadja&Dinaz-Possédé.mp3",
         "duration":"4:29"
     },
@@ -27,7 +27,7 @@
         "id":"4",
         "title":"Les Gentils Bandits Focus",
         "artist":"Zkr",
-        "img":"./assets/img/Zkr-LesgentilsbanditsFocus.jpeg",
+        "img":"./assets/img/Zkr-LesgentilsbanditsFocus.jpg",
         "path":"./assets/mp3/Zkr-LesgentilsbanditsFocus.mp3",
         "duration":"7:12"
     }
