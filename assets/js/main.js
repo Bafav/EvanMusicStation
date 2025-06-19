@@ -224,7 +224,7 @@ function drawVisualizer(){
         return;
     }
     const canvasCtx = VISUALIZER_CANVAS.getContext('2d');
-    if(!canvaCtx){
+    if(!canvasCtx){
         requestAnimationFrame(drawVisualizer);
         return;
     }
