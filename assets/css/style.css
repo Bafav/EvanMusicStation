@@ -1,0 +1,439 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Theme variable definitions */
+/* Theme 1: Neon (Default or body.theme-neon) */
+body.theme-neon {
+  --background_1: #1a1a1a;
+  --background_2: #0d0d0d;
+  --primary_accent: #00ff00;
+  --secondary_accent: #ff00ff;
+  --text_1: #cccccc;
+  --text_2: #00ff00;
+  --border_color: #00ff00;
+  --slider_thumb_color: #00ff00;
+  --slider_track_color: #333333;
+  --canvas_visualizer_bar_primary: #00ff00;
+  --canvas_visualizer_bar_secondary: #ff00ff;
+  --canvas_visualizer_bar_peak: #ffffff;
+  --header_text_shadow_1: var(--text_2);
+  --header_text_shadow_2: var(--text_2);
+  --button_text_color: var(--text_1); /* For generic buttons, if added */
+  --button_hover_text_color: var(--text_2);
+  --button_hover_shadow_color: var(--text_2);
+  --theme_switcher_btn_bg: var(--background_1);
+  --theme_switcher_btn_border: var(--primary_accent);
+  --theme_switcher_btn_text: var(--primary_accent);
+  --theme_switcher_btn_hover_bg: var(--primary_accent);
+  --theme_switcher_btn_hover_text: var(--background_1);
+  --theme_switcher_btn_hover_border: var(--primary_accent);
+  --theme_switcher_btn_hover_shadow: var(--primary_accent);
+  --canvas_trail_color: rgba(0, 0, 0, 0.1); /* Default subtle black trail */
+}
+
+/* Theme 2: Cyberpunk Blue/Red (body.theme-cyberpunk) */
+body.theme-cyberpunk {
+  --background_1: #0f0f28; /* Dark Indigo */
+  --background_2: #050510; /* Very Dark Blue */
+  --primary_accent: #00ffff; /* Cyan/Electric Blue */
+  --secondary_accent: #ff0033; /* Bright Red */
+  --text_1: #e0e0e0;
+  --text_2: #00ffff; /* Cyan for highlights */
+  --border_color: #00ffff;
+  --slider_thumb_color: #00ffff;
+  --slider_track_color: #2a2a4a; /* Darker Indigo */
+  --canvas_visualizer_bar_primary: #00ffff;
+  --canvas_visualizer_bar_secondary: #ff0033;
+  --canvas_visualizer_bar_peak: #ffffff;
+  --header_text_shadow_1: var(--text_2);
+  --header_text_shadow_2: var(--text_2);
+  --button_text_color: var(--text_1);
+  --button_hover_text_color: var(--text_2);
+  --button_hover_shadow_color: var(--text_2);
+  --theme_switcher_btn_bg: var(--background_1);
+  --theme_switcher_btn_border: var(--primary_accent);
+  --theme_switcher_btn_text: var(--primary_accent);
+  --theme_switcher_btn_hover_bg: var(--primary_accent);
+  --theme_switcher_btn_hover_text: var(--background_1);
+  --theme_switcher_btn_hover_border: var(--primary_accent);
+  --theme_switcher_btn_hover_shadow: var(--primary_accent);
+  --canvas_trail_color: rgba(5, 5, 16, 0.15); /* Very dark blue, slightly more opaque trail */
+}
+
+/* Theme 3: Pastel Gamer (body.theme-pastel) */
+body.theme-pastel {
+  --background_1: #2e1a2e; /* Dark Plum */
+  --background_2: #1a0d1a; /* Very Dark Purple */
+  --primary_accent: #f0a0f0; /* Pastel Pink */
+  --secondary_accent: #a0f0f0; /* Pastel Cyan/Mint */
+  --text_1: #f5f5f5;
+  --text_2: #f0a0f0; /* Pastel Pink for highlights */
+  --border_color: #f0a0f0;
+  --slider_thumb_color: #f0a0f0;
+  --slider_track_color: #4d2a4d; /* Mid Plum */
+  --canvas_visualizer_bar_primary: #f0a0f0;
+  --canvas_visualizer_bar_secondary: #a0f0f0;
+  --canvas_visualizer_bar_peak: #333333; /* Dark grey for peaks */
+  --header_text_shadow_1: var(--text_2);
+  --header_text_shadow_2: var(--text_2);
+  --button_text_color: var(--text_1);
+  --button_hover_text_color: var(--text_2);
+  --button_hover_shadow_color: var(--text_2);
+  --theme_switcher_btn_bg: var(--background_1);
+  --theme_switcher_btn_border: var(--primary_accent);
+  --theme_switcher_btn_text: var(--primary_accent);
+  --theme_switcher_btn_hover_bg: var(--primary_accent);
+  --theme_switcher_btn_hover_text: var(--background_1);
+  --theme_switcher_btn_hover_border: var(--primary_accent);
+  --theme_switcher_btn_hover_shadow: var(--primary_accent);
+  --canvas_trail_color: rgba(26, 13, 26, 0.1); /* Very dark purple, subtle trail */
+}
+/* End of Theme variable definitions */
+
+/* Remove old :root variables that are now per-theme */
+/* :root {
+  --background_1: #1a1a1a; 
+  --background_2: #0d0d0d; 
+  --primary_accent: #00ff00; 
+  --secondary_accent: #ff00ff; 
+  --text_1: #cccccc; 
+  --text_2: #00ff00; 
+  --border_color: #00ff00; 
+  --slider_thumb_color: #00ff00;
+  --slider_track_color: #333333;
+} */
+
+body {
+  font-family: 'Audiowide', sans-serif;
+  background-color: var(--background_2); /* Changed from #000000 to use theme variable */
+  color: var(--text_1);
+  margin: 0; 
+  padding: 0; 
+  overflow: hidden; 
+}
+
+#mainHeader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px; 
+  background-color: var(--background_1); 
+  color: var(--text_2); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Audiowide', sans-serif; 
+  border-bottom: 3px solid var(--border_color);
+  box-shadow: 0 5px 15px var(--border_color, rgba(0, 255, 0, 0.2)); /* Use border_color for glow */
+  z-index: 1001; 
+  padding: 0 20px; 
+  box-sizing: border-box; 
+}
+
+#mainHeader h1 {
+  margin: 0;
+  font-size: 2rem; 
+  text-shadow: 0 0 10px var(--header_text_shadow_1), 0 0 20px var(--header_text_shadow_2); 
+}
+
+#themeSwitcherBtn {
+  background-color: var(--theme_switcher_btn_bg);
+  color: var(--theme_switcher_btn_text);
+  border: 1px solid var(--theme_switcher_btn_border);
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 1.2rem; 
+  line-height: 1; 
+  cursor: pointer;
+  margin-left: 15px; 
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+#themeSwitcherBtn:hover {
+  color: var(--theme_switcher_btn_hover_text);
+  background-color: var(--theme_switcher_btn_hover_bg);
+  border-color: var(--theme_switcher_btn_hover_border);
+  box-shadow: 0 0 10px var(--theme_switcher_btn_hover_shadow);
+}
+
+#themeSwitcherBtn:active {
+  transform: translateY(1px); /* Simple active state */
+}
+
+#musicVisualizerCanvas {
+  position: fixed;
+  top: 70px; 
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 70px - 85px); 
+  background-color: var(--background_2); /* Changed from #000000 to use theme variable */
+  z-index: 1; 
+  border: none;
+  border-radius: 0;
+  margin: 0;
+}
+
+.musicPlayer {
+  position: fixed; 
+  bottom: 0;
+  left: 0; 
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px; 
+  background-color: var(--background_1); 
+  border-top: 3px solid var(--border_color); 
+  box-shadow: 0 -5px 15px var(--border_color, rgba(0, 255, 0, 0.2));  /* Use border_color for glow */
+  z-index: 1000; 
+}
+
+.musicPlayer .infos {
+  display: flex;
+  align-items: center;
+  gap: 15px; 
+}
+
+.musicPlayer img#songPicture { 
+  height: 60px; 
+  width: 60px; 
+  object-fit: cover; 
+  border-radius: 5px;
+  border: 2px solid var(--primary_accent);
+  box-shadow: 0 0 10px var(--primary_accent);
+}
+
+.musicPlayer .songInfos #song_title {
+  color: var(--text_2); 
+  font-size: 1rem;
+  font-weight: bold;
+  text-shadow: 0 0 5px var(--text_2); 
+}
+.musicPlayer .songInfos #artist_name {
+  color: var(--text_1);
+  font-size: 0.8rem;
+}
+
+#pause-btn,
+#volume_off {
+  display: none; 
+}
+
+#skipB-btn,
+#play-btn,
+#pause-btn,
+#skipF-btn,
+#volume_icon,
+#volume_off {
+  cursor: pointer;
+  color: var(--button_text_color); /* Updated to use theme variable */
+  font-size: 38px; 
+  transition: color 0.2s ease-in-out, text-shadow 0.2s ease-in-out;
+}
+#skipB-btn:hover,
+#play-btn:hover,
+#pause-btn:hover,
+#skipF-btn:hover,
+#volume_icon:hover,
+#volume_off:hover {
+  color: var(--button_hover_text_color); /* Updated to use theme variable */
+  text-shadow: 0 0 10px var(--button_hover_shadow_color); /* Updated to use theme variable */
+}
+#play-btn, #pause-btn {
+    font-size: 48px; 
+}
+
+.controlSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; 
+}
+
+.duration {
+  color: var(--text_1);
+  display: flex;
+  align-items: center; 
+  gap: 8px;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--slider_track_color);
+  height: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  margin: 0 5px; 
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background: var(--slider_thumb_color);
+  border-radius: 50%;
+  border: 2px solid var(--background_1); 
+  box-shadow: 0 0 5px var(--slider_thumb_color);
+}
+input[type=range]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: var(--slider_thumb_color);
+  border-radius: 50%;
+  border: 2px solid var(--background_1);
+  box-shadow: 0 0 5px var(--slider_thumb_color);
+  cursor: pointer;
+}
+
+#track {
+     width: 350px; 
+}
+#volume {
+    width: 100px;
+}
+
+.volume_input {
+  display: flex;
+  align-items: center;
+  color: var(--text_1);
+}
+
+/* Media Queries for Responsiveness */
+
+@media (max-width: 768px) {
+  #mainHeader h1 {
+    font-size: 1.8rem;
+  }
+  #mainHeader {
+    height: 60px; 
+  }
+  #musicVisualizerCanvas {
+    top: 60px; 
+    height: calc(100vh - 60px - 80px); 
+  }
+
+  .musicPlayer {
+    padding: 10px 15px; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 10px; 
+  }
+
+  .infos {
+    width: 100%;
+    justify-content: center; 
+    margin-bottom: 10px;
+  }
+  
+  .controlSection {
+    width: 100%;
+    gap: 8px; 
+  }
+
+  .duration input[type="range"], #track {
+    width: 100%; 
+    max-width: 400px; 
+  }
+  
+  .duration {
+    width: 90%; 
+    max-width: 400px; 
+    justify-content: center;
+  }
+
+  .musicPlayer .songInfos #song_title {
+    font-size: 0.9rem;
+  }
+  .musicPlayer .songInfos #artist_name {
+    font-size: 0.7rem;
+  }
+
+  #play-btn, #pause-btn {
+    font-size: 42px; 
+  }
+  #skipB-btn, #skipF-btn, #volume_icon, #volume_off {
+    font-size: 32px; 
+  }
+
+  .volume {
+    margin-top: 10px; 
+    width: 100%; 
+    display: flex; 
+    justify-content: center; 
+  }
+  .volume_input {
+     justify-content: center; 
+  }
+  #volume {
+    width: 120px; 
+  }
+}
+
+@media (max-width: 480px) {
+  #mainHeader h1 {
+    font-size: 1.4rem;
+  }
+  #mainHeader {
+    height: 50px; 
+    padding: 0 10px;
+  }
+  #musicVisualizerCanvas {
+    top: 50px; 
+    height: calc(100vh - 50px - 75px); 
+  }
+
+  .musicPlayer {
+    padding: 10px; 
+    gap: 8px;
+  }
+
+  .infos {
+    flex-direction: column; 
+    align-items: center;
+    text-align: center;
+    gap: 5px;
+    margin-bottom: 5px; 
+  }
+  
+  .musicPlayer img#songPicture {
+    height: 50px; 
+    width: 50px; 
+    margin-bottom: 5px;
+  }
+
+  .controlSection .controls {
+    gap: 15px; 
+  }
+  
+  #play-btn, #pause-btn {
+    font-size: 40px; 
+  }
+  #skipB-btn, #skipF-btn {
+    font-size: 30px; 
+  }
+   #volume_icon, #volume_off {
+    font-size: 30px;
+  }
+
+  .duration {
+    font-size: 0.8rem; 
+    width: 100%; 
+    gap: 5px; 
+  }
+  .duration input[type="range"], #track {
+    width: 100%; 
+  }
+  
+  .volume {
+    margin-top: 5px; 
+  }
+  #volume {
+    width: 100px; 
+  }
+}
