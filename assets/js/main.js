@@ -125,7 +125,7 @@ function setSongInfos(newIndex){
     SONG_TITLE.innerHTML=song.title;
     ARTISTE_NAME.innerHTML=song.artist;
     SONG_PICTURE.setAttribute("src",song.img);
-    AUDIO.src.song.path;
+    AUDIO.src=song.path;
     AUDIO.onloadedmetadata=()=>{
         TRACK_TIME.textContent=buildDuration(AUDIO.duration)
         TRACK.max=AUDIO.duration
